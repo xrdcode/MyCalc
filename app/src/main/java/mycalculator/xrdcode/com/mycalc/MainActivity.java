@@ -194,9 +194,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         texBox.setText(texBox.getText() + ".");
                     }
                 }
-
                 break;
             case R.id.btnBackspace:
+                String rep = texBox.getText().toString();
+                if(rep.length() > 0) {
+                    texBox.setText(rep.substring(0, rep.length() - 1));
+                    if(rep.length()-1 <= 0) {
+                        texBox.setText("0");
+                    }
+                }
                 break;
             case R.id.btnPersen:
                 Double tmp = Double.parseDouble(texBox.getText().toString()) / 100;
